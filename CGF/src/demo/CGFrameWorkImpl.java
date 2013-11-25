@@ -21,7 +21,7 @@ public class CGFrameWorkImpl extends CGTemplate {
 
 	@Override
 	protected List<AutoDrawnableObject> initObjects(GL2 gl) {
-		List<AutoDrawnableObject> objets = new ArrayList<>();
+		List<AutoDrawnableObject> objets = new ArrayList<AutoDrawnableObject>();
 		objets.add(new Banco(gl));
 		objets.add(new L1Wall(gl));
 		return objets;
