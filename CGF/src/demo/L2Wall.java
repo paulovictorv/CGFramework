@@ -8,7 +8,7 @@ import javax.media.opengl.glu.GLUtessellatorCallback;
 import utils.GeometryUtils;
 import br.ufal.cg.AutoDrawnableObject;
 
-public class L1Wall extends AutoDrawnableObject {
+public class L2Wall extends AutoDrawnableObject {
 
 	private GLU glu;
 	private int startList;
@@ -16,16 +16,14 @@ public class L1Wall extends AutoDrawnableObject {
 	private double wall_Height = 8;
 	private double wall_Width = 33;
 
-	public L1Wall(GL2 gl) {
+	public L2Wall(GL2 gl) {
 		super(gl);
 		initData();
 	}
 
 	private void initData() {
 		glu = new GLU();
-		/*
-		 * jogl specific addition for tessellation
-		 */
+	
 		TessellCallBack tessCallback = new TessellCallBack(gl, glu);
 
 		double wall_Height = 8;
@@ -37,18 +35,19 @@ public class L1Wall extends AutoDrawnableObject {
 		double[] normal = GeometryUtils.calculateNormal(rect[0], rect[1],
 				rect[2]);
 
-		
+
 		startList = gl.glGenLists(3);
 
 		GLUtessellator tobj = GLU.gluNewTess();
 
-		GLU.gluTessCallback(tobj, GLU.GLU_TESS_VERTEX, tessCallback);// glVertex3dv);
-		GLU.gluTessCallback(tobj, GLU.GLU_TESS_BEGIN, tessCallback);// beginCallback);
-		GLU.gluTessCallback(tobj, GLU.GLU_TESS_END, tessCallback);// endCallback);
-		GLU.gluTessCallback(tobj, GLU.GLU_TESS_ERROR, tessCallback);// errorCallback);
+		GLU.gluTessCallback(tobj, GLU.GLU_TESS_VERTEX, tessCallback);
+		GLU.gluTessCallback(tobj, GLU.GLU_TESS_BEGIN, tessCallback);
+		GLU.gluTessCallback(tobj, GLU.GLU_TESS_END, tessCallback);
+		GLU.gluTessCallback(tobj, GLU.GLU_TESS_ERROR, tessCallback);
 
 		gl.glNewList(startList, GL2.GL_COMPILE);
 		GLU.gluTessBeginPolygon(tobj, null);
+
 		GLU.gluTessBeginContour(tobj);
 		for (int i = 0; i < rect.length; i++) {
 			GLU.gluTessVertex(tobj, rect[i], 0, new double[] { rect[i][0],
@@ -56,36 +55,39 @@ public class L1Wall extends AutoDrawnableObject {
 		}
 		GLU.gluTessEndContour(tobj);
 
-
 		GLU.gluTessEndPolygon(tobj);
 		gl.glEndList();
 
-
+		gl.glNewList(startList + 1, GL2.GL_COMPILE);
+		gl.glEndList();
 
 		normal[1] = -normal[1];
 		gl.glNewList(startList + 2, GL2.GL_COMPILE);
 		GLU.gluTessBeginPolygon(tobj, null);
+
 		GLU.gluTessBeginContour(tobj);
 		for (int i = 0; i < rect.length; i++) {
 			GLU.gluTessVertex(tobj, rect[i], 0, new double[] { rect[i][0],
 					rect[i][1], rect[i][2], normal[0], normal[1], normal[2] });
 		}
 		GLU.gluTessEndContour(tobj);
-		
+
 		GLU.gluTessEndPolygon(tobj);
 		gl.glEndList();
+
 		GLU.gluDeleteTess(tobj);
 
 	}
 
-
 	@Override
 	public void selfDraw(GL2 gl) {
-
-		gl.glTranslatef(9.5f, 0f, 0.2f);
+		//texture.enable(gl);
+		//texture.bind(gl);
+		
+		gl.glTranslatef(0, 0f, 0.2f);
 		gl.glRotatef(-90f, 0f, 0f, 1f);
-
 		gl.glCallList(startList);
+		
 		gl.glPushMatrix();
 		gl.glTranslated(0f, -0.5f, 0f);
 		gl.glCallList(startList + 1);
