@@ -1,6 +1,8 @@
 package br.ufal.cg;
 
 import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.List;
 
 import javax.media.opengl.DebugGL2;
@@ -11,6 +13,8 @@ import javax.media.opengl.GLCapabilities;
 import javax.media.opengl.GLProfile;
 import javax.media.opengl.awt.GLCanvas;
 import javax.media.opengl.glu.GLU;
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 
 
@@ -103,6 +107,8 @@ Já que eu quero estigar a discussão técnica no grupo, abrirei uma pra ver o q
 	 */
 	public abstract void processKeyPressed(final char c);
 
+	public abstract void processButtonClickEvent(String eventCommand);
+	
 	// Template Method
 	private void init_and_show_GUI() {
 
@@ -118,8 +124,8 @@ Já que eu quero estigar a discussão técnica no grupo, abrirei uma pra ver o q
 		Animator animator = new Animator(canvas);
 
 		JFrame frame = new JFrame(getApplicationName());
-		frame.getContentPane().add(canvas);
-
+		frame.getContentPane().setLayout(new BoxLayout(frame.getContentPane(), BoxLayout.Y_AXIS));
+		
 		canvas.addGLEventListener(this);
 		UserKeyBoardListener listener = new UserKeyBoardListener(this);
 		UserMouseEventListener mouseListener = new UserMouseEventListener(this);
@@ -128,7 +134,22 @@ Já que eu quero estigar a discussão técnica no grupo, abrirei uma pra ver o q
 		canvas.addMouseListener(mouseListener);
 		canvas.addMouseMotionListener(mouseListener);
 
+		final JButton button = new JButton("Abrir Porta");
+		button.setActionCommand("ABRIR_PORTA");
+		
+		button.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				processButtonClickEvent(e.getActionCommand());
+				if (e.getActionCommand().equals("ABRIR_PORTA"))
+					button.setActionCommand("FECHAR_PORTA");
+				else 
+					button.setActionCommand("ABRIR_PORTA");
+			}
+		});
+		
 		frame.getContentPane().add(canvas);
+		frame.getContentPane().add(button);
 		frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		frame.setSize(new Dimension(500, 400));
 		frame.setVisible(true);

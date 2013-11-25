@@ -19,11 +19,21 @@ public class CGFrameWorkImpl extends CGTemplate {
 	private float[] ambientLightArray = { 1f, 1f, 1f, 1f };
 	private float[] diffuseLightArray = { 1f, 1f, 1f, 1f };
 
+	private Door doorToOpen;
+	
 	@Override
 	protected List<AutoDrawnableObject> initObjects(GL2 gl) {
 		List<AutoDrawnableObject> objets = new ArrayList<>();
 		objets.add(new Banco(gl));
+		gl.glColor3f(232f / 235f, 255f / 255f, 160f / 255f);
 		objets.add(new L1Wall(gl));
+		objets.add(new L2Wall(gl));
+		objets.add(new FrontWall(gl));
+		objets.add(new BackWall(gl));
+		objets.add(new Roof(gl));
+		objets.add(new Floor(gl));
+		doorToOpen = new Door(gl);
+		objets.add(doorToOpen);
 		return objets;
 	}
 
@@ -48,6 +58,15 @@ public class CGFrameWorkImpl extends CGTemplate {
 	}
 
 	@Override
+	public void processButtonClickEvent(String eventCommand) {
+		if (eventCommand.equals("ABRIR_PORTA")){
+			doorToOpen.openDoor();
+		} else {
+			doorToOpen.closeDoor();
+		}
+	}
+	
+	@Override
 	protected void initLight(GL2 gl) {
 		gl.glEnable(GL2.GL_LIGHTING);
 		gl.glLightfv(GL2.GL_LIGHT0, GL2.GL_AMBIENT, ambientLightArray, 0);
@@ -66,4 +85,5 @@ public class CGFrameWorkImpl extends CGTemplate {
 	public static void main(String[] args) {
 		new CGFrameWorkImpl();
 	}
+
 }

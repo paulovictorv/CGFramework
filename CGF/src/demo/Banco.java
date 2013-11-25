@@ -13,7 +13,6 @@ public class Banco extends br.ufal.cg.AutoDrawnableObject {
 	
 	private void compileGround(GL2 gl) {
 		gl.glNewList(displayIndex, GL2.GL_COMPILE);
-//		gl.glColor3f(0.40f, 0.25f, 0f);
 		
 		//horizontal meio
 		gl.glBegin(GL2.GL_POLYGON);		
@@ -51,8 +50,6 @@ public class Banco extends br.ufal.cg.AutoDrawnableObject {
 		gl.glVertex3f(-0.4f, 0, 2f);
 		gl.glTexCoord2f(0.5f, 0.5f);
 		gl.glEnd();
-		
-		//gl.glColor3f(0.60f, 0.30f, 0f);
 		
 		//vertical l1
 		gl.glBegin(GL2.GL_QUADS);		
@@ -124,63 +121,22 @@ public class Banco extends br.ufal.cg.AutoDrawnableObject {
 		gl.glRotatef(-90, 0f, 0f, 1f);
 		
 		
-		gl.glTranslatef(0f, 2f, 0.2f);
+		gl.glTranslatef(5f, 2f, 0.4f);
+		
 		gl.glPushMatrix();
-		for (int i = 0; i <=13; i++) {
+		gl.glTranslatef(-0f, 15, 0f);
+		for (int i = 0; i <=8; i++) {
 			gl.glTranslatef(3f, 0f, 0f);
 			gl.glCallList(displayIndex);
 		}
 		gl.glPopMatrix();
 		
-		gl.glTranslatef(2f, 12, 0f);
-		gl.glPushMatrix();
-		for (int i = 0; i <=16; i++) {
+		gl.glTranslatef(0f, 0, 0f);
+		for (int i = 0; i <=8; i++) {
 			gl.glTranslatef(3f, 0f, 0f);
 			gl.glCallList(displayIndex);
 		}
-		gl.glPopMatrix();
-		
-		gl.glTranslatef(0f, 10, 0f);
-		for (int i = 0; i <=16; i++) {
-			gl.glTranslatef(3f, 0f, 0f);
-			gl.glCallList(displayIndex);
-		}
-		//Bancos L2
-		gl.glRotatef(90, 0f, 0f, 1f);
-		gl.glTranslatef(-35, -15, 1f);
-		gl.glPushMatrix();
-		for (int i = 0; i <=4; i++) {
-			gl.glTranslatef(3f, 0f, 0f);
-			gl.glCallList(displayIndex);
-		}
-		gl.glPopMatrix();
-		
-		gl.glTranslatef(0, -9, 0f);
-		gl.glPushMatrix();
-		for (int i = 0; i <=4; i++) {
-			gl.glTranslatef(3f, 0f, 0f);
-			gl.glCallList(displayIndex);
-		}
-		gl.glPopMatrix();
-		
-		//Bancos L1
-		
-		gl.glRotatef(180, 0f, 0f, 1f);
-		gl.glTranslatef(-63.3f, -13f, 0f);
-		gl.glPushMatrix();
-		for (int i = 0; i <=4; i++) {
-			gl.glTranslatef(3f, 0f, 0f);
-			gl.glCallList(displayIndex);
-		}
-		gl.glPopMatrix();
-		
-		gl.glTranslatef(0, 9, 0f);
-		gl.glPushMatrix();
-		for (int i = 0; i <=4; i++) {
-			gl.glTranslatef(3f, 0f, 0f);
-			gl.glCallList(displayIndex);
-		}
-		gl.glPopMatrix();
+
 	}
 
 	@Override
