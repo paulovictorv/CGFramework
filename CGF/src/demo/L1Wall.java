@@ -198,8 +198,8 @@ public class L1Wall extends AutoDrawnableObject {
 
 	@Override
 	public void selfDraw(GL2 gl) {
-		texture.enable(gl);
-		texture.bind(gl);
+//		texture.enable(gl);
+//		texture.bind(gl);
 
 		gl.glTranslatef(13.5f, 0f, 0.2f);
 		gl.glRotatef(-90, 0f, 0f, 1f);
