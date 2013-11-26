@@ -46,6 +46,7 @@ public class FrontWall extends AutoDrawnableObject {
 		GLU.gluTessCallback(tobj, GLU.GLU_TESS_ERROR, tessCallback);
 
 		gl.glNewList(startList, GL2.GL_COMPILE);
+                gl.glColor3f(0.94f,0.78f,0.77f); //paredes frontal externas
 		GLU.gluTessBeginPolygon(tobj, null);
 		GLU.gluTessBeginContour(tobj);
 		for (int i = 0; i < rect.length; i++) {
@@ -68,6 +69,7 @@ public class FrontWall extends AutoDrawnableObject {
 		gl.glPushMatrix();
 		gl.glTranslatef(0.0f, 0.0f, 8f);
 		gl.glRotatef(90f, 1f, 0f, 0f);
+                gl.glColor3f(0.87f,0.72f,0.53f); //triangulo parede frontal interna
 		gl.glBegin(GL2.GL_POLYGON);
 			{
 				gl.glVertex3f(0, 0, 0);
@@ -80,6 +82,7 @@ public class FrontWall extends AutoDrawnableObject {
 		gl.glPushMatrix();
 		gl.glTranslatef(0.0f, 0.5f, 8f);
 		gl.glRotatef(90f, 1f, 0f, 0f);
+                gl.glColor3f(0.94f,0.78f,0.77f); //triangulo parede frontal externa
 		gl.glBegin(GL2.GL_POLYGON);
 			{
 				gl.glVertex3f(0, 0, 0);
@@ -94,6 +97,7 @@ public class FrontWall extends AutoDrawnableObject {
 
 		normal[1] = -normal[1];
 		gl.glNewList(startList + 2, GL2.GL_COMPILE);
+                gl.glColor3f(0.87f,0.72f,0.53f); //paredes frontal internas
 		GLU.gluTessBeginPolygon(tobj, null);
 
 		GLU.gluTessBeginContour(tobj);

@@ -23,7 +23,7 @@ public class CGFrameWorkImpl extends CGTemplate {
 	
 	@Override
 	protected List<AutoDrawnableObject> initObjects(GL2 gl) {
-		List<AutoDrawnableObject> objets = new ArrayList<>();
+		List<AutoDrawnableObject> objets = new ArrayList<AutoDrawnableObject>();
 		objets.add(new Banco(gl));
 		gl.glColor3f(232f / 235f, 255f / 255f, 160f / 255f);
 		objets.add(new L1Wall(gl));
@@ -32,6 +32,7 @@ public class CGFrameWorkImpl extends CGTemplate {
 		objets.add(new BackWall(gl));
 		objets.add(new Roof(gl));
 		objets.add(new Floor(gl));
+                objets.add(new Table(gl));
 		doorToOpen = new Door(gl);
 		objets.add(doorToOpen);
 		return objets;

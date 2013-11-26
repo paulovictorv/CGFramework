@@ -25,6 +25,7 @@ public class Floor extends AutoDrawnableObject{
 	public void selfDraw(GL2 gl) {
 		gl.glPushMatrix();
 		gl.glTranslatef(-0.5f, 0f, 0f);
+                gl.glColor3f(0.66f,0.66f,0.66f);
 		gl.glBegin(GL2.GL_POLYGON);
 		{
 			gl.glVertex3f(0, 0, 0.2f);
