@@ -32,6 +32,7 @@ public class CGFrameWorkImpl extends CGTemplate {
 		objets.add(new BackWall(gl));
 		objets.add(new Roof(gl));
 		objets.add(new Floor(gl));
+                objets.add(new Table(gl));
 		doorToOpen = new Door(gl);
 		objets.add(doorToOpen);
 		return objets;

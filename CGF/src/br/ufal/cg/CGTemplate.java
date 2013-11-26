@@ -196,7 +196,7 @@ public abstract class CGTemplate extends MovableCamera {
 		initLight(gl);
 		gl.setSwapInterval(1);
 		gl.glEnable(GL.GL_DEPTH_TEST);
-		gl.glClearColor(.2f, .2f, .5f, 0);
+		gl.glClearColor(.12f, .56f, 1.0f, 0);
 		gl.glShadeModel(getShadeModel()); 
 											
 

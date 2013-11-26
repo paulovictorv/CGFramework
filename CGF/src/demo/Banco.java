@@ -103,13 +103,13 @@ public class Banco extends br.ufal.cg.AutoDrawnableObject {
 		//vertical maior l2
 		gl.glBegin(GL2.GL_POLYGON);		
 		gl.glVertex3f(0f, 4f, 0f);
-		gl.glTexCoord2f(0f, 0f);
+//		gl.glTexCoord2f(0f, 0f);
 		gl.glVertex3f(-0.8f, 4f, 0f);
-		gl.glTexCoord2f(0f, 0.5f);
+//		gl.glTexCoord2f(0f, 0.5f);
 		gl.glVertex3f(-0.8f, 4f, 2.3f);
-		gl.glTexCoord2f(0.5f, 0f);
+//		gl.glTexCoord2f(0.5f, 0f);
 		gl.glVertex3f(0f, 4f, 2.3f);
-		gl.glTexCoord2f(0.5f, 0.5f);
+//		gl.glTexCoord2f(0.5f, 0.5f);
 		gl.glEnd();
 		gl.glEndList();
 	}
@@ -127,6 +127,7 @@ public class Banco extends br.ufal.cg.AutoDrawnableObject {
 		gl.glTranslatef(-0f, 15, 0f);
 		for (int i = 0; i <=8; i++) {
 			gl.glTranslatef(3f, 0f, 0f);
+                        gl.glColor3f(0.54f,0.27f,0.07f); //marrom madeira banco
 			gl.glCallList(displayIndex);
 		}
 		gl.glPopMatrix();
@@ -134,6 +135,7 @@ public class Banco extends br.ufal.cg.AutoDrawnableObject {
 		gl.glTranslatef(0f, 0, 0f);
 		for (int i = 0; i <=8; i++) {
 			gl.glTranslatef(3f, 0f, 0f);
+                        gl.glColor3f(0.54f,0.27f,0.07f); //marrom madeira banco
 			gl.glCallList(displayIndex);
 		}
 

@@ -15,7 +15,7 @@ class UserKeyBoardListener implements KeyListener {
 
 	public UserKeyBoardListener(MovableCamera renderer) {
 		this.renderer = renderer;
-		pressedChars = new ArrayList<>();
+		pressedChars = new ArrayList<Character>();
 
 		Thread listener = new Thread(new Runnable() {
 

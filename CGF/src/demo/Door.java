@@ -66,6 +66,7 @@ public class Door extends AutoDrawnableObject{
 		gl.glTranslatef(-6.5f, 0, 0);
 		double door[][] = createPortalVertices(3f);
 		
+                gl.glColor3f(0.5f,0.5f,0.5f); //cinza porta
 		gl.glBegin(GL2.GL_POLYGON);
 		{
 			gl.glVertex3dv(door[0], 0);
@@ -75,6 +76,7 @@ public class Door extends AutoDrawnableObject{
 		}
 		gl.glEnd();
 		
+                gl.glColor3f(0.5f,0.5f,0.5f); //cinza porta
 		gl.glBegin(GL2.GL_TRIANGLE_FAN);
 		{
 			gl.glVertex3dv(door[1], 0);
@@ -96,6 +98,7 @@ public class Door extends AutoDrawnableObject{
 		gl.glRotatef(angle, 0, 0, 1);
 		gl.glTranslatef(-6.5f, 0, 0);
 		
+                gl.glColor3f(0.5f,0.5f,0.5f); //cinza porta
 		gl.glBegin(GL2.GL_POLYGON);
 		{
 			gl.glVertex3dv(door[0], 0);
@@ -105,6 +108,7 @@ public class Door extends AutoDrawnableObject{
 		}
 		gl.glEnd();
 		
+                gl.glColor3f(0.5f,0.5f,0.5f); //cinza porta
 		gl.glBegin(GL2.GL_TRIANGLE_FAN);
 		{
 			gl.glVertex3dv(door[1], 0);

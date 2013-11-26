@@ -46,6 +46,7 @@ public class L2Wall extends AutoDrawnableObject {
 		GLU.gluTessCallback(tobj, GLU.GLU_TESS_ERROR, tessCallback);
 
 		gl.glNewList(startList, GL2.GL_COMPILE);
+                gl.glColor3f(0.87f,0.72f,0.53f); //parede lateral interna
 		GLU.gluTessBeginPolygon(tobj, null);
 
 		GLU.gluTessBeginContour(tobj);
@@ -63,6 +64,7 @@ public class L2Wall extends AutoDrawnableObject {
 
 		normal[1] = -normal[1];
 		gl.glNewList(startList + 2, GL2.GL_COMPILE);
+                gl.glColor3f(0.94f,0.78f,0.77f); //parede lateral externa
 		GLU.gluTessBeginPolygon(tobj, null);
 
 		GLU.gluTessBeginContour(tobj);
