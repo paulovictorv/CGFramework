@@ -30,7 +30,7 @@ public abstract class AutoDrawnableObject {
 			texture = TextureIO.newTexture(data);
 		} catch (Exception exc) {
 			System.err
-					.println("Não foi possível gerar as texturas para a CLasse:"
+					.println("Nao foi possivel gerar as texturas para a Classe:"
 							+ getTextureImg());
 		}
 

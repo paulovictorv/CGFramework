@@ -46,7 +46,7 @@ public abstract class CGTemplate extends MovableCamera {
 
 		glut = new GLUT();
 
-		// Definição do método template
+		// Defini????o do m??todo template
 		init_and_show_GUI();
 
 	}
@@ -61,7 +61,6 @@ public abstract class CGTemplate extends MovableCamera {
 	protected abstract List<AutoDrawnableObject> initObjects(GL2 gl);
 
 	/**
-Já que eu quero estigar a discussão técnica no grupo, abrirei uma pra ver o que acontece: O que ac
 	 * 
 	 * @return String to be placed on JFrame
 	 */
@@ -197,7 +196,7 @@ Já que eu quero estigar a discussão técnica no grupo, abrirei uma pra ver o q
 		initLight(gl);
 		gl.setSwapInterval(1);
 		gl.glEnable(GL.GL_DEPTH_TEST);
-		gl.glClearColor(.2f, .2f, .5f, 0);
+		gl.glClearColor(.12f, .56f, 1.0f, 0);
 		gl.glShadeModel(getShadeModel()); 
 											
 
