@@ -32,9 +32,12 @@ public class CGFrameWorkImpl extends CGTemplate {
 		objets.add(new BackWall(gl));
 		objets.add(new Roof(gl));
 		objets.add(new Floor(gl));
-                objets.add(new Table(gl));
+        objets.add(new Table(gl));
 		doorToOpen = new Door(gl);
 		objets.add(doorToOpen);
+		objets.add(new MesaPadre(gl));
+		objets.add(new HasteCruz(gl));
+		objets.add(new Cruz(gl));
 		return objets;
 	}
 
@@ -69,14 +72,6 @@ public class CGFrameWorkImpl extends CGTemplate {
 	
 	@Override
 	protected void initLight(GL2 gl) {
-		gl.glEnable(GL2.GL_LIGHTING);
-		gl.glLightfv(GL2.GL_LIGHT0, GL2.GL_AMBIENT, ambientLightArray, 0);
-		gl.glLightfv(GL2.GL_LIGHT0, GL2.GL_DIFFUSE, diffuseLightArray, 0);
-//		gl.glLightfv(GL2.GL_LIGHT0, GL2.GL_SPECULAR, specularLightArray, 0);
-		gl.glEnable(GL2.GL_LIGHT0);
-//		gl.glMaterialfv(GL2.GL_FRONT, GL2.GL_SPECULAR, specularLightArray, 0);
-//		gl.glMateriali(GL2.GL_FRONT, GL2.GL_SHININESS, 10);
-		gl.glEnable(GL2.GL_COLOR_MATERIAL);
 	}
 
 	@Override
