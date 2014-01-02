@@ -48,7 +48,7 @@ public class L1Wall extends AutoDrawnableObject {
 		GLU.gluTessCallback(tobj, GLU.GLU_TESS_ERROR, tessCallback);// errorCallback);
 
 		gl.glNewList(startList, GL2.GL_COMPILE);
-                gl.glColor3f(0.94f,0.78f,0.77f); //paredes laterais externas
+                gl.glColor3f(1f,0.87f,0.69f); //paredes laterais externas
 		GLU.gluTessBeginPolygon(tobj, null);
 		GLU.gluTessBeginContour(tobj);
 		for (int i = 0; i < rect.length; i++) {
@@ -65,7 +65,7 @@ public class L1Wall extends AutoDrawnableObject {
 
 		normal[1] = -normal[1];
 		gl.glNewList(startList + 2, GL2.GL_COMPILE);
-                gl.glColor3f(0.87f,0.72f,0.53f); //paredes laterais internas
+		gl.glColor3f(0.98f,0.94f,0.90f); //paredes laterais internas
 		GLU.gluTessBeginPolygon(tobj, null);
 		GLU.gluTessBeginContour(tobj);
 		for (int i = 0; i < rect.length; i++) {
@@ -83,7 +83,9 @@ public class L1Wall extends AutoDrawnableObject {
 
 	@Override
 	public void selfDraw(GL2 gl) {
-
+		texture.bind(gl);
+		texture.enable(gl);
+		
 		gl.glTranslatef(9.5f, 0f, 0.2f);
 		gl.glRotatef(-90f, 0f, 0f, 1f);
 
@@ -96,11 +98,6 @@ public class L1Wall extends AutoDrawnableObject {
 		gl.glTranslatef(0f, -0.5f, 0f);
 		gl.glCallList(startList + 2);
 
-	}
-
-	@Override
-	protected String getTextureImg() {
-		return "FrontWall.jpg";
 	}
 
 	private double[] calculateTexturePoint(double[] vertice) {
@@ -179,5 +176,12 @@ public class L1Wall extends AutoDrawnableObject {
 	protected String getTextureExtension() {
 		return "jpg";
 	}
+	
+	@Override
+	protected String getTextureImg() {
+		return "FrontWall.jpg";
+	}
+
+	
 
 }

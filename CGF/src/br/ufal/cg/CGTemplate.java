@@ -46,7 +46,7 @@ public abstract class CGTemplate extends MovableCamera {
 
 		glut = new GLUT();
 
-		// Defini????o do m??todo template
+		// Definicao do metodo template
 		init_and_show_GUI();
 
 	}
@@ -170,18 +170,18 @@ public abstract class CGTemplate extends MovableCamera {
 
 		
 		gl.glLightfv(GL2.GL_LIGHT0, GL2.GL_POSITION, lightPos, 0);
-		//gl.glEnable(GL2.GL_TEXTURE_2D);
+		gl.glEnable(GL2.GL_TEXTURE_2D);
 		for (AutoDrawnableObject obj : objects) {
 			gl.glPushMatrix();
-			//obj.bindTexture();
+			obj.bindTexture();
 			obj.selfDraw(gl);
-			//obj.unbindTexture();
+			obj.unbindTexture();
 			gl.glPopMatrix();
 		}
 
-//		gl.glTranslatef(lightPos[0], lightPos[1], lightPos[2]);
-//		gl.glColor3f(1f, 1f, 1f);
-//		glut.glutSolidSphere(0.2f, 30, 30);
+		gl.glTranslatef(lightPos[0], lightPos[1], lightPos[2]);
+		gl.glColor3f(1f, 1f, 1f);
+		glut.glutSolidSphere(0.2f, 30, 30);
 
 		gl.glFlush();
 

@@ -46,6 +46,7 @@ public class BackWall extends AutoDrawnableObject {
 
 		gl.glNewList(startList, GL2.GL_COMPILE);
 		GLU.gluTessBeginPolygon(tobj, null);
+		gl.glColor3f(0.98f,0.94f,0.90f);
 		GLU.gluTessBeginContour(tobj);
 		for (int i = 0; i < rect.length; i++) {
 			GLU.gluTessVertex(tobj, rect[i], 0, new double[] { rect[i][0],
@@ -56,30 +57,37 @@ public class BackWall extends AutoDrawnableObject {
 		gl.glEndList();
 
 		gl.glNewList(startList + 1, GL2.GL_COMPILE);
+	
 		gl.glPushMatrix();
 		gl.glTranslatef(0.0f, 0.0f, 8f);
 		gl.glRotatef(90f, 1f, 0f, 0f);
-                gl.glColor3f(0.94f,0.78f,0.77f); //triangulo parede fundo externa
+		gl.glColor3f(1f,0.87f,0.69f); //triangulo parede fundo externa
 		gl.glBegin(GL2.GL_POLYGON);
-			{
-				gl.glVertex3f(0, 0, 0);
-				gl.glVertex3f(5, 4, 0);
-				gl.glVertex3f(10, 0, 0);
-				gl.glEnd();
-			}
+
+		gl.glTexCoord3f(0, 0, 0);
+		gl.glVertex3f(0, 0, 0);
+		gl.glTexCoord3f(1, 0, 0);
+		gl.glVertex3f(5, 4, 0);
+		gl.glTexCoord3f(1, 1, 0);
+		gl.glVertex3f(10, 0, 0);
+
+		gl.glEnd();
 		gl.glPopMatrix();
 	
 		gl.glPushMatrix();
 		gl.glTranslatef(0.0f, 0.5f, 8f);
 		gl.glRotatef(90f, 1f, 0f, 0f);
-                gl.glColor3f(0.87f,0.72f,0.53f); //triangulo parede fundo interna
+		gl.glColor3f(0.98f,0.94f,0.90f); //triangulo parede fundo interna
 		gl.glBegin(GL2.GL_POLYGON);
 			{
+				gl.glTexCoord3f(0, 0, 0);
 				gl.glVertex3f(0, 0, 0);
+				gl.glTexCoord3f(1, 0, 0);
 				gl.glVertex3f(5, 4, 0);
+				gl.glTexCoord3f(1, 1, 0);
 				gl.glVertex3f(10, 0, 0);
-				gl.glEnd();
 			}
+		gl.glEnd();
 		gl.glPopMatrix();
 	
 		
@@ -89,7 +97,7 @@ public class BackWall extends AutoDrawnableObject {
 		gl.glNewList(startList + 2, GL2.GL_COMPILE);
                 
 		GLU.gluTessBeginPolygon(tobj, null);
-                gl.glColor3f(0.94f,0.78f,0.77f); //parede fundo externa
+		 gl.glColor3f(1f,0.87f,0.69f); //parede fundo externa
 		GLU.gluTessBeginContour(tobj);
 		for (int i = 0; i < rect.length; i++) {
 			GLU.gluTessVertex(tobj, rect[i], 0, new double[] { rect[i][0],
@@ -106,6 +114,9 @@ public class BackWall extends AutoDrawnableObject {
 
 	@Override
 	public void selfDraw(GL2 gl) {
+		texture.enable(gl);
+		texture.bind(gl);
+		
 		gl.glTranslatef(-0.5f, -20f, 0.2f);
 		gl.glCallList(startList);
 		

@@ -46,7 +46,7 @@ public class FrontWall extends AutoDrawnableObject {
 		GLU.gluTessCallback(tobj, GLU.GLU_TESS_ERROR, tessCallback);
 
 		gl.glNewList(startList, GL2.GL_COMPILE);
-                gl.glColor3f(0.94f,0.78f,0.77f); //paredes frontal externas
+		 gl.glColor3f(1f,0.87f,0.69f);; //paredes frontal externas
 		GLU.gluTessBeginPolygon(tobj, null);
 		GLU.gluTessBeginContour(tobj);
 		for (int i = 0; i < rect.length; i++) {
@@ -69,27 +69,34 @@ public class FrontWall extends AutoDrawnableObject {
 		gl.glPushMatrix();
 		gl.glTranslatef(0.0f, 0.0f, 8f);
 		gl.glRotatef(90f, 1f, 0f, 0f);
-                gl.glColor3f(0.87f,0.72f,0.53f); //triangulo parede frontal interna
-		gl.glBegin(GL2.GL_POLYGON);
+        gl.glColor3f(0.98f,0.94f,0.90f); //triangulo parede frontal interna
+
+        gl.glBegin(GL2.GL_POLYGON);
 			{
+				gl.glTexCoord3f(0, 0, 0);
 				gl.glVertex3f(0, 0, 0);
+				gl.glTexCoord3f(1, 0, 0);
 				gl.glVertex3f(5, 4, 0);
+				gl.glTexCoord3f(1, 1, 0);
 				gl.glVertex3f(10, 0, 0);
-				gl.glEnd();
 			}
+		gl.glEnd();
 		gl.glPopMatrix();
 	
 		gl.glPushMatrix();
 		gl.glTranslatef(0.0f, 0.5f, 8f);
 		gl.glRotatef(90f, 1f, 0f, 0f);
-                gl.glColor3f(0.94f,0.78f,0.77f); //triangulo parede frontal externa
+		gl.glColor3f(1f,0.87f,0.69f); //triangulo parede frontal externa
 		gl.glBegin(GL2.GL_POLYGON);
 			{
+				gl.glTexCoord3f(0, 0, 0);
 				gl.glVertex3f(0, 0, 0);
+				gl.glTexCoord3f(1, 0, 0);
 				gl.glVertex3f(5, 4, 0);
+				gl.glTexCoord3f(1, 1, 0);
 				gl.glVertex3f(10, 0, 0);
-				gl.glEnd();
 			}
+		gl.glEnd();
 		gl.glPopMatrix();
 	
 		
@@ -97,7 +104,7 @@ public class FrontWall extends AutoDrawnableObject {
 
 		normal[1] = -normal[1];
 		gl.glNewList(startList + 2, GL2.GL_COMPILE);
-                gl.glColor3f(0.87f,0.72f,0.53f); //paredes frontal internas
+		gl.glColor3f(0.98f,0.94f,0.90f); //paredes frontal internas
 		GLU.gluTessBeginPolygon(tobj, null);
 
 		GLU.gluTessBeginContour(tobj);
@@ -124,6 +131,9 @@ public class FrontWall extends AutoDrawnableObject {
 
 	@Override
 	public void selfDraw(GL2 gl) {
+		texture.enable(gl);
+		texture.bind(gl);
+		
 		gl.glTranslatef(-0.5f, 0f, 0.2f);
 		gl.glCallList(startList);
 		
@@ -220,32 +230,15 @@ public class FrontWall extends AutoDrawnableObject {
 	}
 
 	private double[][] createPortalVertices(float x_init) {
-		double[][] arr = new double[14][3];
+		double[][] arr = new double[4][3];
 
 		float x_width = 3.5f;
-		double arc_center = x_init + x_width / 2f;
-		double z_height = 3d;
+		double z_height = 4d;
 		double z_init = 0;
 		arr[0] = new double[] { x_init, 0.0, z_init };
 		arr[1] = new double[] { x_init, 0.0, z_init + z_height };
-
-		// Semi circulo
-		int cur_angle = 180;
-		int num_vert = 10;
-		float angleSum = cur_angle / num_vert;
-
-		for (int i = 2; i < arr.length - 2; i++) {
-			double x_pos = arc_center + x_width / 2f
-					* Math.cos(Math.toRadians(cur_angle));
-			double z_pos = z_init + z_height + x_width / 2f
-					* Math.sin(Math.toRadians(cur_angle));
-
-			arr[i] = new double[] { x_pos, 0.0, z_pos };
-			cur_angle -= angleSum;
-		}
-
-		arr[12] = new double[] { x_init + x_width, 0.0, z_init + z_height };
-		arr[13] = new double[] { x_init + x_width, 0.0, z_init };
+		arr[2] = new double[] { x_init + x_width, 0.0, z_init + z_height };
+		arr[3] = new double[] { x_init + x_width, 0.0, z_init };
 
 		return arr;
 	}

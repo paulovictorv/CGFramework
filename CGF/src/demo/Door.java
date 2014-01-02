@@ -23,7 +23,7 @@ public class Door extends AutoDrawnableObject{
 
 	@Override
 	protected String getTextureImg() {
-		return "FrontWall.jpg";
+		return "Porta.jpg";
 	}
 
 	public void openDoor(){
@@ -65,28 +65,39 @@ public class Door extends AutoDrawnableObject{
 		gl.glRotatef(-angle, 0, 0, 1);
 		gl.glTranslatef(-6.5f, 0, 0);
 		double door[][] = createPortalVertices(3f);
-		
-                gl.glColor3f(0.5f,0.5f,0.5f); //cinza porta
-		gl.glBegin(GL2.GL_POLYGON);
+        gl.glColor3f(1f, 1f, 1f); //cinza porta
+        
+        texture.enable(gl);
+        texture.bind(gl);
+        
+        gl.glBegin(GL2.GL_POLYGON);
 		{
+			gl.glTexCoord3f(0, 0, 0);
 			gl.glVertex3dv(door[0], 0);
+			gl.glTexCoord3f(0, 1, 0);
 			gl.glVertex3dv(door[1], 0);
+			gl.glTexCoord3f(1, 1, 0);
 			gl.glVertex3dv(door[12], 0);
+			gl.glTexCoord3f(1, 0, 0);
 			gl.glVertex3dv(door[13], 0);
 		}
 		gl.glEnd();
 		
-                gl.glColor3f(0.5f,0.5f,0.5f); //cinza porta
-		gl.glBegin(GL2.GL_TRIANGLE_FAN);
-		{
-			gl.glVertex3dv(door[1], 0);
-			for (int i = 2; i < door.length - 2; i++){
-				gl.glVertex3dv(door[i], 0);
-			 }
-			gl.glVertex3dv(door[12], 0);
-			
-		}
-		gl.glEnd();
+		gl.glColor3f(1f,1f,1f); //cinza porta
+//		gl.glBegin(GL2.GL_TRIANGLE_FAN);
+//		{
+//			gl.glTexCoord3f(0, 0, 0);
+//			gl.glVertex3dv(door[1], 0);
+//			for (int i = 2; i < door.length - 2; i++){
+//				gl.glTexCoord3f(i, i, 0);
+//				gl.glVertex3dv(door[i], 0);
+//			 }
+//			gl.glTexCoord3f(1, 0, 0);
+//			gl.glVertex3dv(door[12], 0);
+//			
+//		}
+//		gl.glEnd();
+		
 		gl.glPopMatrix();
 		gl.glTranslatef(9.5f, 0, 0);
 		
@@ -98,27 +109,31 @@ public class Door extends AutoDrawnableObject{
 		gl.glRotatef(angle, 0, 0, 1);
 		gl.glTranslatef(-6.5f, 0, 0);
 		
-                gl.glColor3f(0.5f,0.5f,0.5f); //cinza porta
+        gl.glColor3f(1f,1f,1f); //cinza porta
 		gl.glBegin(GL2.GL_POLYGON);
 		{
+			gl.glTexCoord3f(0, 0, 0);
 			gl.glVertex3dv(door[0], 0);
+			gl.glTexCoord3f(0, 1, 0);
 			gl.glVertex3dv(door[1], 0);
+			gl.glTexCoord3f(1, 1, 0);
 			gl.glVertex3dv(door[12], 0);
+			gl.glTexCoord3f(1, 0, 0);
 			gl.glVertex3dv(door[13], 0);
 		}
 		gl.glEnd();
 		
-                gl.glColor3f(0.5f,0.5f,0.5f); //cinza porta
-		gl.glBegin(GL2.GL_TRIANGLE_FAN);
-		{
-			gl.glVertex3dv(door[1], 0);
-			for (int i = 2; i < door.length - 2; i++){
-				gl.glVertex3dv(door[i], 0);
-			 }
-			gl.glVertex3dv(door[12], 0);
-			
-		}
-		gl.glEnd();
+//        gl.glColor3f(0.5f,0.5f,0.5f); //cinza porta
+//		gl.glBegin(GL2.GL_TRIANGLE_FAN);
+//		{
+//			gl.glVertex3dv(door[1], 0);
+//			for (int i = 2; i < door.length - 2; i++){
+//				gl.glVertex3dv(door[i], 0);
+//			 }
+//			gl.glVertex3dv(door[12], 0);
+//			
+//		}
+//		gl.glEnd();
 		gl.glPopMatrix();
 		
 	}
@@ -128,7 +143,7 @@ public class Door extends AutoDrawnableObject{
 
 		float x_width = 3.5f;
 		double arc_center = x_init + x_width / 2f;
-		double z_height = 3d;
+		double z_height = 4d;
 		double z_init = 0;
 		arr[0] = new double[] { x_init + 1.75, 0.0, z_init };
 		arr[1] = new double[] { x_init + 1.75, 0.0, z_init + z_height };

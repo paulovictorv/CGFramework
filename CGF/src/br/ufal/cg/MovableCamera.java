@@ -12,9 +12,9 @@ abstract class MovableCamera extends JFrame implements GLEventListener {
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	protected double x_eye = 1;
-	protected double y_eye = 0;
-	protected double z_eye = 1;
+	protected double x_eye = 21;
+	protected double y_eye = 20;
+	protected double z_eye = 21;
 
 	protected double x_y_angle = 180;
 	protected double z_angle = 0;

@@ -1,13 +1,16 @@
 package demo;
 
+import java.nio.FloatBuffer;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.media.opengl.GL2;
 import javax.media.opengl.GLAutoDrawable;
 
-import br.ufal.cg.CGTemplate;
+import utils.VBOUtils;
+
 import br.ufal.cg.AutoDrawnableObject;
+import br.ufal.cg.CGTemplate;
 
 public class CGFrameWorkImpl extends CGTemplate {
 
