@@ -39,16 +39,18 @@ public class Cruz extends AutoDrawnableObject{
 
 	@Override
 	protected String getTextureExtension() {
-		return null;
+		return "jpg";
 	}
 
 	@Override
 	protected String getTextureImg() {
-		return null;
+		return "Tinta.jpg";
 	}
 
 	@Override
-	public void selfDraw(GL2 gl) {
+	public void selfDraw(GL2 gl) {	
+		texture.enable(gl);
+        texture.bind(gl);
 		
 		gl.glRotated(90, 1, 0, 0);
 		
@@ -76,8 +78,26 @@ public class Cruz extends AutoDrawnableObject{
 	public void paintFromArray(GL2 gl, Integer... array){
 		gl.glBegin(GL2.GL_POLYGON);
 		for (int i = 0; i < array.length; i++){
+			setTexture(i);
 			gl.glVertex3dv(vertices[array[i]], 0);
 		}
 		gl.glEnd();
+	}
+	
+	private void setTexture (int arrayIndex) {
+		switch(arrayIndex) {
+		case 0:
+			gl.glTexCoord2f(1, 0);
+			break;
+		case 1:
+			gl.glTexCoord2f(0, 1);
+			break;
+		case 2:
+			gl.glTexCoord2f(1, 1);
+			break;
+		case 3:
+			gl.glTexCoord2f(0, 0);
+			break;
+		}
 	}
 }

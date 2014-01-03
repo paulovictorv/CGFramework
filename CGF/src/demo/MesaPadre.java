@@ -44,16 +44,18 @@ public class MesaPadre extends AutoDrawnableObject {
 
 	@Override
 	protected String getTextureExtension() {
-		return null;
+		return "jpg";
 	}
 
 	@Override
 	protected String getTextureImg() {
-		return null;
+		return "Granito.jpg";
 	}
 
 	@Override
 	public void selfDraw(GL2 gl) {
+		texture.enable(gl);
+        texture.bind(gl);
 		
 		gl.glPushMatrix();		
 		gl.glRotatef(90, 1, 0, 0);
@@ -67,9 +69,13 @@ public class MesaPadre extends AutoDrawnableObject {
 		//FRENTE
 		gl.glBegin(GL2.GL_POLYGON);
 		{
+			gl.glTexCoord2f(1, 0);
 			gl.glVertex3dv(vertices[0], 0);
+			gl.glTexCoord2f(0, 0);
 			gl.glVertex3dv(vertices[3], 0);
+			gl.glTexCoord2f(1, 1);
 			gl.glVertex3dv(vertices[2], 0);
+			gl.glTexCoord2f(0, 1);
 			gl.glVertex3dv(vertices[1], 0);
 		}
 		gl.glEnd();
@@ -77,9 +83,13 @@ public class MesaPadre extends AutoDrawnableObject {
 		//TRAS
 		gl.glBegin(GL2.GL_POLYGON);
 		{
+			gl.glTexCoord2f(1, 0);
 			gl.glVertex3dv(vertices[22], 0);
+			gl.glTexCoord2f(0, 0);
 			gl.glVertex3dv(vertices[25], 0);
+			gl.glTexCoord2f(1, 1);
 			gl.glVertex3dv(vertices[24], 0);
+			gl.glTexCoord2f(0, 1);
 			gl.glVertex3dv(vertices[23], 0);
 		}
 		gl.glEnd();
@@ -87,9 +97,13 @@ public class MesaPadre extends AutoDrawnableObject {
 		//ESQUERDA
 		gl.glBegin(GL2.GL_POLYGON);
 		{
+			gl.glTexCoord2f(1, 0);
 			gl.glVertex3dv(vertices[5], 0);
+			gl.glTexCoord2f(0, 0);
 			gl.glVertex3dv(vertices[4], 0);
+			gl.glTexCoord2f(1, 1);
 			gl.glVertex3dv(vertices[3], 0);
+			gl.glTexCoord2f(0, 1);
 			gl.glVertex3dv(vertices[6], 0);
 		}
 		gl.glEnd();
@@ -97,9 +111,13 @@ public class MesaPadre extends AutoDrawnableObject {
 		//DIREITA
 		gl.glBegin(GL2.GL_POLYGON);
 		{
+			gl.glTexCoord2f(1, 0);
 			gl.glVertex3dv(vertices[9], 0);
+			gl.glTexCoord2f(0, 0);
 			gl.glVertex3dv(vertices[2], 0);
+			gl.glTexCoord2f(1, 1);
 			gl.glVertex3dv(vertices[7], 0);
+			gl.glTexCoord2f(0, 1);
 			gl.glVertex3dv(vertices[8], 0);
 		}
 		gl.glEnd();
@@ -107,9 +125,13 @@ public class MesaPadre extends AutoDrawnableObject {
 		//APOIO BDF
 		gl.glBegin(GL2.GL_POLYGON);
 		{
+			gl.glTexCoord2f(1, 0);
 			gl.glVertex3dv(vertices[10], 0);
+			gl.glTexCoord2f(0, 0);
 			gl.glVertex3dv(vertices[11], 0);
+			gl.glTexCoord2f(1, 1);
 			gl.glVertex3dv(vertices[12], 0);
+			gl.glTexCoord2f(0, 1);
 			gl.glVertex3dv(vertices[13], 0);
 		}
 		gl.glEnd();
@@ -117,9 +139,13 @@ public class MesaPadre extends AutoDrawnableObject {
 		//APOIO BEF
 		gl.glBegin(GL2.GL_POLYGON);
 		{
+			gl.glTexCoord2f(1, 0);
 			gl.glVertex3dv(vertices[10], 0);
+			gl.glTexCoord2f(0, 0);
 			gl.glVertex3dv(vertices[13], 0);
+			gl.glTexCoord2f(1, 1);
 			gl.glVertex3dv(vertices[14], 0);
+			gl.glTexCoord2f(0, 1);
 			gl.glVertex3dv(vertices[15], 0);
 		}
 		gl.glEnd();
@@ -127,9 +153,13 @@ public class MesaPadre extends AutoDrawnableObject {
 		//APOIO BDC
 		gl.glBegin(GL2.GL_POLYGON);
 		{
+			gl.glTexCoord2f(1, 0);
 			gl.glVertex3dv(vertices[16], 0);
+			gl.glTexCoord2f(0, 0);
 			gl.glVertex3dv(vertices[17], 0);
+			gl.glTexCoord2f(1, 1);
 			gl.glVertex3dv(vertices[18], 0);
+			gl.glTexCoord2f(0, 1);
 			gl.glVertex3dv(vertices[19], 0);
 		}
 		gl.glEnd();
@@ -137,9 +167,13 @@ public class MesaPadre extends AutoDrawnableObject {
 		//APOIO BEC
 		gl.glBegin(GL2.GL_POLYGON);
 		{
+			gl.glTexCoord2f(1, 0);
 			gl.glVertex3dv(vertices[0], 0);
+			gl.glTexCoord2f(0, 0);
 			gl.glVertex3dv(vertices[3], 0);
+			gl.glTexCoord2f(1, 1);
 			gl.glVertex3dv(vertices[2], 0);
+			gl.glTexCoord2f(0, 1);
 			gl.glVertex3dv(vertices[1], 0);
 		}
 		gl.glEnd();
@@ -147,9 +181,13 @@ public class MesaPadre extends AutoDrawnableObject {
 		//APOIO BL1
 		gl.glBegin(GL2.GL_POLYGON);
 		{
+			gl.glTexCoord2f(1, 0);
 			gl.glVertex3dv(vertices[10], 0);
+			gl.glTexCoord2f(0, 0);
 			gl.glVertex3dv(vertices[15], 0);
+			gl.glTexCoord2f(1, 1);
 			gl.glVertex3dv(vertices[21], 0);
+			gl.glTexCoord2f(0, 1);
 			gl.glVertex3dv(vertices[16], 0);
 		}
 		gl.glEnd();
@@ -157,9 +195,13 @@ public class MesaPadre extends AutoDrawnableObject {
 		//APOIO BL2
 		gl.glBegin(GL2.GL_POLYGON);
 		{
+			gl.glTexCoord2f(1, 0);
 			gl.glVertex3dv(vertices[10], 0);
+			gl.glTexCoord2f(0, 0);
 			gl.glVertex3dv(vertices[16], 0);
+			gl.glTexCoord2f(1, 1);
 			gl.glVertex3dv(vertices[17], 0);
+			gl.glTexCoord2f(0, 1);
 			gl.glVertex3dv(vertices[11], 0);
 		}
 		gl.glEnd();
@@ -167,9 +209,13 @@ public class MesaPadre extends AutoDrawnableObject {
 		//APOIO BL3
 		gl.glBegin(GL2.GL_POLYGON);
 		{
+			gl.glTexCoord2f(1, 0);
 			gl.glVertex3dv(vertices[13], 0);
+			gl.glTexCoord2f(0, 0);
 			gl.glVertex3dv(vertices[19], 0);
+			gl.glTexCoord2f(1, 1);
 			gl.glVertex3dv(vertices[20], 0);
+			gl.glTexCoord2f(0, 1);
 			gl.glVertex3dv(vertices[14], 0);
 		}
 		gl.glEnd();
@@ -177,9 +223,13 @@ public class MesaPadre extends AutoDrawnableObject {
 		//Apoio BL4
 		gl.glBegin(GL2.GL_POLYGON);
 		{
+			gl.glTexCoord2f(1, 0);
 			gl.glVertex3dv(vertices[13], 0);
+			gl.glTexCoord2f(0, 0);
 			gl.glVertex3dv(vertices[12], 0);
+			gl.glTexCoord2f(1, 1);
 			gl.glVertex3dv(vertices[18], 0);
+			gl.glTexCoord2f(0, 1);
 			gl.glVertex3dv(vertices[19], 0);
 		}
 		gl.glEnd();
@@ -187,9 +237,13 @@ public class MesaPadre extends AutoDrawnableObject {
 		//BL5
 		gl.glBegin(GL2.GL_POLYGON);
 		{
+			gl.glTexCoord2f(1, 0);
 			gl.glVertex3dv(vertices[15], 0);
+			gl.glTexCoord2f(0, 0);
 			gl.glVertex3dv(vertices[14], 0);
+			gl.glTexCoord2f(1, 1);
 			gl.glVertex3dv(vertices[20], 0);
+			gl.glTexCoord2f(0, 1);
 			gl.glVertex3dv(vertices[21], 0);
 		}
 		gl.glEnd();
@@ -197,9 +251,13 @@ public class MesaPadre extends AutoDrawnableObject {
 		//BL6
 		gl.glBegin(GL2.GL_POLYGON);
 		{
+			gl.glTexCoord2f(1, 0);
 			gl.glVertex3dv(vertices[11], 0);
+			gl.glTexCoord2f(0, 0);
 			gl.glVertex3dv(vertices[17], 0);
+			gl.glTexCoord2f(1, 1);
 			gl.glVertex3dv(vertices[18], 0);
+			gl.glTexCoord2f(0, 1);
 			gl.glVertex3dv(vertices[12], 0);
 		}
 		gl.glEnd();
