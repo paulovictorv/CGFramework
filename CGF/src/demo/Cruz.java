@@ -30,7 +30,7 @@ public class Cruz extends AutoDrawnableObject{
 	    {-tamanhoBracoCruz, alturaBracoCruz, 0.0}, /* 13 */
 	    {larguraCruz+tamanhoBracoCruz, alturaBracoCruz, 0.0}, /* 14 */
 	    {larguraCruz+tamanhoBracoCruz, alturaBracoCruz-espessura, 0.0}, /* 15 */
-	    {tamanhoBracoCruz, alturaBracoCruz-espessura, 0.0} /* 16 */
+	    {-tamanhoBracoCruz, alturaBracoCruz-espessura, 0.0} /* 16 */
 	};
 	
 	public Cruz(GL2 gl) {
@@ -65,12 +65,12 @@ public class Cruz extends AutoDrawnableObject{
 		paintFromArray(gl, 2,3,7,6); //direita
 		paintFromArray(gl, 0,2,6,5); //topo
 		paintFromArray(gl, 3,4,8,7); //fundo
-		paintFromArray(gl, 9,10,11,12); //bracoF
-		paintFromArray(gl, 13,14,15,16); //bracoTr
-		paintFromArray(gl, 12,11,15,14); //bracoD
+		paintFromArray(gl, 9,10,11,12); //bracoTr
+		paintFromArray(gl, 13,14,15,16); //bracoTr 
+		paintFromArray(gl, 12,11,15,14); //bracoD //red ok
 		paintFromArray(gl, 9,13,16,10); //bracoE
-		paintFromArray(gl, 9,12,14,13); //bracoTopo
-		paintFromArray(gl, 11,10,16,15); //bracoF
+		paintFromArray(gl, 9,12,14,13); //bracoTopo ok
+		paintFromArray(gl, 11,10,16,15); //bracoBaixo
 	}
 
 	public void paintFromArray(GL2 gl, Integer... array){
