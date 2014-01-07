@@ -1,13 +1,10 @@
 package demo;
 
-import java.nio.FloatBuffer;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.media.opengl.GL2;
 import javax.media.opengl.GLAutoDrawable;
-
-import utils.VBOUtils;
 
 import br.ufal.cg.AutoDrawnableObject;
 import br.ufal.cg.CGTemplate;
@@ -51,7 +48,7 @@ public class CGFrameWorkImpl extends CGTemplate {
 
 	@Override
 	protected float[] lightPosition() {
-		return new float[] { 10, -10, 8, 1 };
+		return new float[] { 4, -10, 8, 1 };
 	}
 
 	@Override
@@ -75,6 +72,13 @@ public class CGFrameWorkImpl extends CGTemplate {
 	
 	@Override
 	protected void initLight(GL2 gl) {
+	  	gl.glEnable(GL2.GL_LIGHTING);
+		gl.glLightfv(GL2.GL_LIGHT0, GL2.GL_AMBIENT, ambientLightArray, 0);
+		gl.glLightfv(GL2.GL_LIGHT0, GL2.GL_DIFFUSE, diffuseLightArray, 0);
+		gl.glEnable(GL2.GL_LIGHT0);
+
+		gl.glMateriali(GL2.GL_FRONT, GL2.GL_SHININESS, 128);
+		gl.glEnable(GL2.GL_COLOR_MATERIAL);
 	}
 
 	@Override

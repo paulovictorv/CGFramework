@@ -72,7 +72,7 @@ public abstract class CGTemplate extends MovableCamera {
 	 * 
 	 * A sample for this method is:
 	 * 
-	 * 	gl.glEnable(GL2.GL_LIGHTING);
+	  	gl.glEnable(GL2.GL_LIGHTING);
 		gl.glLightfv(GL2.GL_LIGHT0, GL2.GL_AMBIENT, ambientLightArray, 0);
 		gl.glLightfv(GL2.GL_LIGHT0, GL2.GL_DIFFUSE, diffuseLightArray, 0);
 		gl.glLightfv(GL2.GL_LIGHT0, GL2.GL_SPECULAR, specularLightArray, 0);
